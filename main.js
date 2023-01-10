@@ -35,6 +35,7 @@ function game() {
     let gameScore = 0;
     let roundNumber = 0;
     roundMessage = 'Hello Human';
+    alert(`Open the console to play...`);
     console.log(`${roundMessage}. 5 rounds. The score is Player ${playerScore}, AI ${computerScore}.`);
     for (let i = 0; i <= 4; i++) {
         let humanSelection = prompt(`Round ` + ( roundNumber + 1 ) + `: Rock, Paper or Scissors?`).toLowerCase();
