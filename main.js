@@ -34,31 +34,50 @@ function startRound(humanSelection, computerSelection) {
 function game() {
     let playerScore = 0;
     let computerScore = 0; 
-    roundMessage = 'Welcome';
-    console.log(`${roundMessage} The score is Player ${playerScore}, AI ${computerScore}.`);
-    for (let i = 0; i <= 5; i++) {
-        let humanSelection = prompt("Rock, Paper, Scissors?").toLowerCase();
+    let gameScore = 0;
+    let roundNumber = 0;
+    roundMessage = 'Hello Human';
+    console.log(`${roundMessage}. 5 rounds. The score is Player ${playerScore}, AI ${computerScore}.`);
+    for (let i = 0; i <= 4; i++) {
+        let humanSelection = prompt(`Round ` + ( roundNumber + 1 ) + `: Rock, Paper or Scissors?`).toLowerCase();
         if (humanSelection !== 'rock' && humanSelection !== 'paper' && humanSelection !== 'scissors') {
-            roundMessage = `${humanSelection}` + ' is not an option. Please select Rock, Paper or Scissors.';
+            roundMessage = `${humanSelection}` + ' is not an option. Tied round. Please select Rock, Paper or Scissors.';
+            roundNumber++;
+            console.log(`Round ${roundNumber}: ${roundMessage} The score is Player ${playerScore}, AI ${computerScore}.`);
+            continue;
         } else {
             let roundResult
             let computerSelection = getComputerChoice();
             roundResult = startRound(humanSelection, computerSelection);
             if (roundResult === DRAW) {
                 roundMessage = `It\'s a tie. You both chose ${humanSelection}.`;
+                roundNumber++;
             } else if (roundResult === WIN) {
                 playerScore++;
                 roundMessage = `You win. ${humanSelection} beats ${computerSelection}.`;
-            } else if (roundResult === LOSE) {
+                roundNumber++;
+            } else {
                 computerScore++;
                 roundMessage = `You lose. ${computerSelection} beats ${humanSelection}`;
-            } else {
-                roundMessage = `Error!`;
+                roundNumber++;
             }
         }
-        console.log(`${roundMessage} The score is Player ${playerScore}, AI ${computerScore}.`);
-
+        gameScore = playerScore - computerScore;
+        console.log(`Round ${roundNumber}: ${roundMessage} The score is Player ${playerScore}, AI ${computerScore}.`);
     }
+    return gameScore;
+}
+
+function endGame() {
+    let gameResult = game();
+    if (gameResult === 0) {
+        gameMessage = `The game ended a draw. `;
+    } else if (gameResult > 0) {
+        gameMessage = `This was a triumph! You defeated the AI!`;
+    } else {
+        gameMessage = `You lost the game! Better luck next time!`
+    }
+    console.log(`${gameMessage}`);
 }
 
 
@@ -66,4 +85,4 @@ const DRAW = 0
 const WIN = +1
 const LOSE = -1
 
-game();
+endGame();
