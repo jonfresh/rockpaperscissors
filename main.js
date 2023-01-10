@@ -15,8 +15,7 @@ function getComputerChoice() {
 function startRound(humanSelection, computerSelection) {
     let humanSelects = humanSelection.toLowerCase();
     let computerSelects = computerSelection.toLowerCase();
-    console.log(`You go ${humanSelects}`);
-    console.log(`AI goes ${computerSelects}`);
+    alert(`You go ${humanSelects}. AI goes ${computerSelects}`);
     if (humanSelects === computerSelects) {
         return DRAW;
     } else if (humanSelects === "rock" && computerSelects === "scissors" ||
@@ -34,15 +33,14 @@ function game() {
     let computerScore = 0; 
     let gameScore = 0;
     let roundNumber = 0;
-    roundMessage = 'Hello Human';
-    alert(`Open the console to play...`);
-    console.log(`${roundMessage}. 5 rounds. The score is Player ${playerScore}, AI ${computerScore}.`);
+    roundMessage = '';
+    alert(`Press OK to play five rounds of Rock, Paper, Scissors against the AI.`);
     for (let i = 0; i <= 4; i++) {
         let humanSelection = prompt(`Round ` + ( roundNumber + 1 ) + `: Rock, Paper or Scissors?`).toLowerCase();
         if (humanSelection !== 'rock' && humanSelection !== 'paper' && humanSelection !== 'scissors') {
             roundMessage = `${humanSelection}` + ' is not an option. Tied round. Please select Rock, Paper or Scissors.';
             roundNumber++;
-            console.log(`Round ${roundNumber}: ${roundMessage} The score is Player ${playerScore}, AI ${computerScore}.`);
+            alert(`${roundMessage} After Round ${roundNumber}: You have ${playerScore}. AI has ${computerScore}.`);
             continue;
         } else {
             let roundResult
@@ -53,16 +51,16 @@ function game() {
                 roundNumber++;
             } else if (roundResult === WIN) {
                 playerScore++;
-                roundMessage = `You win. ${humanSelection} beats ${computerSelection}.`;
+                roundMessage = `You win.`;
                 roundNumber++;
             } else {
                 computerScore++;
-                roundMessage = `You lose. ${computerSelection} beats ${humanSelection}`;
+                roundMessage = `You lose.`;
                 roundNumber++;
             }
         }
         gameScore = playerScore - computerScore;
-        console.log(`Round ${roundNumber}: ${roundMessage} The score is Player ${playerScore}, AI ${computerScore}.`);
+        alert(`${roundMessage} After Round ${roundNumber}: You have ${playerScore}. AI has ${computerScore}.`);
     }
     return gameScore;
 }
@@ -76,7 +74,7 @@ function endGame() {
     } else {
         gameMessage = `You lost the game! Better luck next time!`
     }
-    console.log(`${gameMessage}`);
+    alert(`${gameMessage}`);
 }
 
 const DRAW = 0
