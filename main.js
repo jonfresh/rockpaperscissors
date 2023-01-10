@@ -1,3 +1,8 @@
+// Rock Paper Scissors game by Jon Stead. An Odin Project.
+
+// getComputerChoice is a repeatable function that selects a random selection of 1, 2 or 3.
+// The selection is then returned as either Rock, Paper or Scissors.
+
 function getComputerChoice() {
     const randomSelection = Math.floor(Math.random() * 3 + 1);
     switch (randomSelection) {
@@ -11,6 +16,10 @@ function getComputerChoice() {
             return 'scissors';
     }
 }
+
+// startRound is a repeatable function that takes a selection from both the player and the computer.
+// It compares the selections to see if the player wins, loses or draws the round and returns the result to the main game.
+// It also alerts the player to the selections made each round.
 
 function startRound(humanSelection, computerSelection) {
     let humanSelects = humanSelection.toLowerCase();
@@ -27,6 +36,11 @@ function startRound(humanSelection, computerSelection) {
     }
     
 }
+
+// game is a looping function that plays the game for 5 rounds. It calls on the other functions for its inputs and keeps score.
+// As each round is played it asks for the player's selection and receives a return from the startRound function.
+// Depending on the result of the round the score is adjusted through the playerScore, computerScore and gameScore variables.
+// It also alerts the player after each round with the result and the updated score. At the end of the game it returns the final score.
 
 function game() {
     let playerScore = 0;
@@ -65,7 +79,9 @@ function game() {
     return gameScore;
 }
 
-function endGame() {
+// runGame is a function that initializes the game and returns the final result to the player.
+
+function runGame() {
     let gameResult = game();
     if (gameResult === 0) {
         gameMessage = `The game ended a draw. `;
@@ -77,8 +93,12 @@ function endGame() {
     alert(`${gameMessage}`);
 }
 
+// These variables are defined to adjust the gameScore during each round.
+
 const DRAW = 0
 const WIN = +1
 const LOSE = -1
 
-endGame();
+// Runs the game.
+
+runGame();
