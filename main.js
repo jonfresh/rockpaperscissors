@@ -1,5 +1,3 @@
-
-
 function getComputerChoice() {
     const randomSelection = Math.floor(Math.random() * 3 + 1);
     switch (randomSelection) {
@@ -79,7 +77,6 @@ function endGame() {
     }
     console.log(`${gameMessage}`);
 }
-
 
 const DRAW = 0
 const WIN = +1
