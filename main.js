@@ -11,11 +11,6 @@ function updateScore() {
     computerScoreCard.innerText = computerScore;
 }
 
-function getComputerChoice() {
-    const randomSelection = gameOptions[Math.floor(Math.random() * gameOptions.length)];
-    return randomSelection;
-}
-
 function updateDOM(human, computer) {
     let humanUpdate = document.querySelector(`.optionHuman.${human}`);
     humanUpdate.classList.add('selected');
@@ -52,23 +47,25 @@ function roundLogic(human, computer) {
                human === "paper" && computer === "rock" ||
                human === "scissors" && computer === "paper") {
                 humanScore ++;
-                console.log(humanScore);
         return human;
     } else {
         computerScore ++;
-        console.log(computerScore);
         return computer;
     }
+}
+
+function getComputerChoice() {
+    const randomSelection = gameOptions[Math.floor(Math.random() * gameOptions.length)];
+    return randomSelection;
 }
 
 function playRound(getHumanChoice) {
     let human = getHumanChoice.target.innerText.toLowerCase();
     let computer = getComputerChoice();
-    let roundResult = roundLogic(human, computer);
+    roundLogic(human, computer);
+    checkEndGame();
     updateDOM(human, computer);
     updateScore();
-    checkEndGame();
-    console.log(roundResult);
 };
 
 window.addEventListener('click', function (getHumanChoice) {
@@ -80,11 +77,11 @@ window.addEventListener('click', function (getHumanChoice) {
     }
 });
 
-window.addEventListener('touchstart', function (getHumanChoice) {
-    const humanSelection = getHumanChoice.target.innerText.toLowerCase();
-    if (gameOptions.includes(humanSelection) !== true) {
-        return;
-    } else {
-        playRound(getHumanChoice);
-    }
-});
+// window.addEventListener('touchstart', function (getHumanChoice) {
+//     const humanSelection = getHumanChoice.target.innerText.toLowerCase();
+//     if (gameOptions.includes(humanSelection) !== true) {
+//         return;
+//     } else {
+//         playRound(getHumanChoice);
+//     }
+// });
