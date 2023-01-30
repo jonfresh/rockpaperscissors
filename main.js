@@ -78,6 +78,7 @@ window.addEventListener('click', function (getHumanChoice) {
     } else {
         playRound(getHumanChoice);
     }
+});
 
 window.addEventListener('touchstart', function (getHumanChoice) {
     const humanSelection = getHumanChoice.target.innerText.toLowerCase();
