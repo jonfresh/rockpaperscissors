@@ -2,6 +2,11 @@
 
 body {
     margin: 0%;
+    font-family: 'Oxygen Mono', sans-serif;
+    color: rgb(rgb(0, 0, 0));
+    font-weight: 800;
+    line-height: 1.3;
+    font-size: 4.8vw;
 }
 
 .container {
@@ -9,11 +14,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-content: space-evenly;
-    font-family: 'Oxygen Mono', sans-serif;
-    color: rgb(rgb(0, 0, 0));
-    font-weight: 800;
-    line-height: 1.3;
-    font-size: 4.8vw;
     height: 100vh;
     align-items: center;
     justify-content: center;
@@ -30,25 +30,27 @@ body {
     gap: 2.4rem;
 }
 
-.player {
+.playerName {
     font-size: 2vw;
 }
 
 .scoreCard { 
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
-.selected {
-    color: blue;
+.option {
+    transition: all 1.2s;
 }
+
+
+.selected {
+    transform: scale(1.1 );
+    color: rgb(28, 172, 57);
+}
+
 
 .winScreen {
     position: absolute;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
     background-color: rgb(77, 225, 143);
     color: rgb(255, 255, 255);
     display: none;
@@ -56,12 +58,20 @@ body {
 
 .loseScreen {
     position: absolute;
+    background-color: rgb(225, 77, 77);
+    color: rgb(255, 255, 255);
+    display: none;
+}
+
+.showEndScreen {
     display: grid;
     align-items: center;
     justify-content: center;
     height: 100vh;
     width: 100%;
-    background-color: rgb(225, 77, 77);
-    color: rgb(255, 255, 255);
+}
+
+.hideAnimation {
+    transition: all 0.01s;
     display: none;
 }
