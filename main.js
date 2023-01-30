@@ -55,6 +55,7 @@ humanBtns.forEach(humanBtn => humanBtn.addEventListener('click', () => {
 
 
 
+
 function game() {
     let playerScore = 0;
     let computerScore = 0; 
