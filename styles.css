@@ -82,7 +82,24 @@ h1 {
     font-size: 9.5vw;
 }
 
-a {
-    font-size: 5vw;
+.endButton {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oxygen Mono', sans-serif;
+    font-size: 2.5vw;
+    line-height: 2vw;
     color: rgb(255, 255, 255);
+    padding: 20px;
+    width: 50vw;
+    border-color: aliceblue;
+    
+}
+
+.winButton {
+    background-color: rgb(77, 225, 143);
+}
+
+.loseButton {
+    background-color: rgb(225, 77, 77);
 }
