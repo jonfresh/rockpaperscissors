@@ -79,4 +79,11 @@ window.addEventListener('click', function (getHumanChoice) {
         playRound(getHumanChoice);
     }
 
+window.addEventListener('touchstart', function (getHumanChoice) {
+    const humanSelection = getHumanChoice.target.innerText.toLowerCase();
+    if (gameOptions.includes(humanSelection) !== true) {
+        return;
+    } else {
+        playRound(getHumanChoice);
+    }
 });
