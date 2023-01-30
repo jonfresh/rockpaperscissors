@@ -65,6 +65,7 @@ body {
 
 .showEndScreen {
     display: grid;
+    text-align: center;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -74,4 +75,14 @@ body {
 .hideAnimation {
     transition: all 0.01s;
     display: none;
+}
+
+
+h1 {
+    font-size: 9.5vw;
+}
+
+a {
+    font-size: 5vw;
+    color: rgb(255, 255, 255);
 }
