@@ -27,11 +27,11 @@ body {
     align-content: center;
     height: 100%;
     background-color: rgb(255, 255, 255);    
-    gap: 2.4rem;
+    gap: 1.9rem;
 }
 
 .playerName {
-    font-size: 2vw;
+    font-size: 2.2vw;
 }
 
 .scoreCard { 
@@ -39,7 +39,7 @@ body {
 }
 
 .option {
-    transition: all 1.2s;
+    transition: all 1s;
 }
 
 
