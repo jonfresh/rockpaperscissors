@@ -24,7 +24,7 @@ function getComputerChoice() {
 function startRound(humanSelection, computerSelection) {
     let humanSelects = humanSelection.toLowerCase();
     let computerSelects = computerSelection.toLowerCase();
-    alert(`You go ${humanSelects}. AI goes ${computerSelects}`);
+    // alert(`You go ${humanSelects}. AI goes ${computerSelects}`);
     if (humanSelects === computerSelects) {
         return DRAW;
     } else if (humanSelects === "rock" && computerSelects === "scissors" ||
@@ -42,19 +42,32 @@ function startRound(humanSelection, computerSelection) {
 // Depending on the result of the round the score is adjusted through the playerScore, computerScore and gameScore variables.
 // It also alerts the player after each round with the result and the updated score. At the end of the game it returns the final score.
 
+
+const humanBtns = document.querySelectorAll('.humanBtn');
+
+function logText() {
+    console.log(this.id);
+}   
+
+humanBtns.forEach(humanBtn => humanBtn.addEventListener('click', () => {
+    alert(humanBtn.id);
+}));
+
+
+
 function game() {
     let playerScore = 0;
     let computerScore = 0; 
     let gameScore = 0;
     let roundNumber = 0;
     roundMessage = '';
-    alert(`Press OK to play five rounds of Rock, Paper, Scissors against the AI.`);
-    for (let i = 0; i <= 4; i++) {
+    // alert(`Press OK to play five rounds of Rock, Paper, Scissors against the AI.`);
+    for (let i = 0; i <= 0; i++) {
         let humanSelection = prompt(`Round ` + ( roundNumber + 1 ) + `: Rock, Paper or Scissors?`).toLowerCase();
         if (humanSelection !== 'rock' && humanSelection !== 'paper' && humanSelection !== 'scissors') {
             roundMessage = `${humanSelection}` + ' is not an option. Tied round. Please select Rock, Paper or Scissors.';
             roundNumber++;
-            alert(`${roundMessage} After Round ${roundNumber}: You have ${playerScore}. AI has ${computerScore}.`);
+            // alert(`${roundMessage} After Round ${roundNumber}: You have ${playerScore}. AI has ${computerScore}.`);
             continue;
         } else {
             let roundResult
@@ -74,7 +87,7 @@ function game() {
             }
         }
         gameScore = playerScore - computerScore;
-        alert(`${roundMessage} After Round ${roundNumber}: You have ${playerScore}. AI has ${computerScore}.`);
+        // alert(`${roundMessage} After Round ${roundNumber}: You have ${playerScore}. AI has ${computerScore}.`);
     }
     return gameScore;
 }
@@ -90,7 +103,7 @@ function runGame() {
     } else {
         gameMessage = `You lost the game! Better luck next time!`
     }
-    alert(`${gameMessage}`);
+    // alert(`${gameMessage}`);
 }
 
 // These variables are defined to adjust the gameScore during each round.
