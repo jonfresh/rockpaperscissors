@@ -45,7 +45,6 @@ function checkEndGame () {
     
 }
 
-
 function roundLogic(human, computer) {
     if (human === computer) {
         return;
