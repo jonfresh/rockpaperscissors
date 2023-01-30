@@ -61,7 +61,6 @@ function roundLogic(human, computer) {
     }
 }
 
-
 function playRound(getHumanChoice) {
     let human = getHumanChoice.target.innerText.toLowerCase();
     let computer = getComputerChoice();
